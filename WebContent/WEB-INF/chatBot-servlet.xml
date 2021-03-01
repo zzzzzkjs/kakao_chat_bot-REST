@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans default-autowire="no"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:c="http://www.springframework.org/schema/c" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/jdbc
+		http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.2.xsd 
+		http://www.springframework.org/schema/websocket
+		http://www.springframework.org/schema/websocket/spring-websocket-4.0.xsd">
+
+	<mvc:annotation-driven />
+
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+	</bean>
+
+
+	<bean id="themeResolver"
+		class="org.springframework.web.servlet.theme.CookieThemeResolver">
+		<property name="defaultThemeName" value="theme" />
+		<property name="cookieName" value="clientTheme" />
+		<property name="cookieMaxAge" value="0" />
+		<property name="cookiePath" value="/" />
+	</bean>
+
+
+
+	<!-- **View Resolver** -->
+	<!-- * Default : InternalResourceViewResolver -->
+
+	<!-- <bean id="viewResolver" -->
+	<!-- class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
+	<!-- <property name="prefix" value="/WEB-INF/jsp/"/> -->
+	<!-- <property name="suffix" value=".jsp"/> -->
+	<!-- </bean> -->
+
+
+
+	<!-- **Controllers** -->
+
+	<!-- chatBot controller(REST) -->
+	<bean name="/" class="kr.co.tvpoint.web.controller.ChatBotController">
+	</bean>
+
+
+<!-- 	<bean -->
+<!-- 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"> -->
+<!-- 		<property name="messageConverters"> -->
+<!-- 			<util:list list-class="java.util.ArrayList"> -->
+<!-- 				<ref bean="mappingJackson2HttpMessageConverter" /> -->
+<!-- 			</util:list> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+<!-- 	<bean id="mappingJackson2HttpMessageConverter" -->
+<!-- 		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> -->
+<!-- 		<property name="supportedMediaTypes"> -->
+<!-- 			<list> -->
+<!-- 				<value>text/html;charset=UTF-8</value> -->
+<!-- 				<value>application/json;charset=UTF-8</value> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+
+
+
+</beans>
